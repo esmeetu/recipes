@@ -1,11 +1,11 @@
 {
   "latest": {
     "vllm": {
-      "repo": "vllm-project/vllm",
-      "ref": "main",
+      "repo": "esmeetu/vllm",
+      "ref": "recipes-presets",
       "path": "recipes",
-      "sha": "717cf843426ce85dbb7170aff7d7a833ad7d3c09",
-      "tree_sha": "b3103b6ec375f4947d4d7023a4f8807d87dc5a6d",
+      "sha": "235ad4e9ba11342dbe4133eed8d86405d1903e5c",
+      "tree_sha": "1498f030569030f42039ec6f7096837cc24f850b",
       "resolved_at": "2026-10-24T11:17:31.838Z"
     },
     "vllm-omni": {
