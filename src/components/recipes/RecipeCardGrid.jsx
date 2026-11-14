@@ -118,11 +118,14 @@ function RecipeCard({ recipe }) {
           <div className="font-semibold text-sm leading-tight group-hover:text-vllm-blue transition-colors line-clamp-1 break-all">
             {recipe.hf_repo}
           </div>
-          <div className="font-mono text-[10px] text-muted-foreground/70 truncate mt-0.5">
-            {recipe.hf_org}
+          {/* The kind sits on the org line, not beside the title: there it took
+              ~80px from the title row and truncated 27-31 character names. */}
+          <div className="flex items-center gap-1.5 mt-0.5 min-w-0">
+            <span className="font-mono text-[10px] text-muted-foreground/70 truncate">{recipe.hf_org}</span>
+            <span className="text-[10px] text-muted-foreground/40" aria-hidden>·</span>
+            <KindChip kind={kind} tasks={recipe.meta?.tasks} outputs={recipe.omni_outputs} />
           </div>
         </div>
-        <KindChip kind={kind} tasks={recipe.meta?.tasks} outputs={recipe.omni_outputs} />
       </div>
 
       {/* Spec row */}
@@ -178,7 +181,7 @@ function KindChip({ kind, tasks, outputs }) {
       )}
     >
       <span
-        className="inline-flex items-center gap-1 mt-0.5 text-[10px] text-muted-foreground whitespace-nowrap shrink-0 cursor-help"
+        className="inline-flex items-center gap-1 text-[10px] text-muted-foreground whitespace-nowrap shrink-0 cursor-help"
       >
         {Icon && <Icon size={kind === "omni" ? 11 : 10} className={KIND_ICON_CLASS[kind]} />}
         {label}
